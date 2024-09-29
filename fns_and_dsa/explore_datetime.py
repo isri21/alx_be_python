@@ -1,4 +1,4 @@
-form datetime import datetime, timedelta
+from datetime import datetime, timedelta
 
 def display_current_datetime():
 	current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -11,5 +11,11 @@ def calculate_future_date():
 	future_day = current_date + diff
 	print(f"Future date: {future_day.date()}")
 
-display_current_datetime()
-calculate_future_date()
+def main():
+	display_current_datetime()
+	calculate_future_date()
+
+
+if __name__ == "__main__":
+    main()
+

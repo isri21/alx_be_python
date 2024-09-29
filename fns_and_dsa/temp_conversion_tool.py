@@ -11,15 +11,15 @@ temprature = input("Enter the temperature to convert: ")
 
 try:
 	temp_int = float(temprature)
+	type = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").upper()
+
+	if type == "C":
+		print(f"{temp_int}°C is {convert_to_fahrenheit(temp_int)}°F")
+	elif type == "F":
+		print(f"{temp_int}°F is {convert_to_celsius(temp_int)}°C")
+	else:
+		print("Please enter the correct type.")
+
 except ValueError:
 	print("Invalid temperature. Please enter a numeric value.")
-	exit()
-type = input("Is this temperature in Celsius or Fahrenheit? (C/F): ")
-
-if type == "C":
-	print(f"{temp_int}°C is {convert_to_fahrenheit(temp_int)}°F")
-elif type == "F":
-	print(f"{temp_int}°F is {convert_to_celsius(temp_int)}°C")
-else:
-	print("Please enter the correct type.")
 

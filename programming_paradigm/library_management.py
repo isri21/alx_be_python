@@ -3,34 +3,35 @@ class Book:
 		self.title = title
 		self.author = author
 		self.__is_checked_out = False
-	def get_check_value(self):
-		return self.__is_checked_out
+
+	def set_check_value(self, value):
+		self.__is_checked_out = value
+		
+	def is_checked_out(self):
+		if self.__is_checked_out == True:
+			return True
+		else:
+			return False
 
 class Library:
 	def __init__(self):
 		self.__books = []
 		
 	def add_book(self, book):
-		book_lf = [book.title, book.author, book.get_check_value()]
-		self.__books.append(book_lf)
+		self.__books.append(book)
 		
 	def check_out_book(self, title):
-		i = 0
 		for book in self.__books:
-			if title in book:
-				self.__books[i][2] = True
-			else:
-				i += 1
-				
+			if book.title == title:
+				book.set_check_value(True)
+			
 	def return_book(self, title):
-		i = 0
 		for book in self.__books:
-			if title in book:
-				self.__books[i][2] = False
-			else:
-				i += 1
+			if book.title == title:
+				book.set_check_value(False)
 				
 	def list_available_books(self):
 		for book in self.__books:
-			if False in book:
-				print(f"{book[0]} by {book[1]}")
+			if book.is_checked_out() == False:
+				print(f"{book.title} by {book.author}")
+

@@ -7,7 +7,7 @@ class Book:
 	def set_check_value(self, value):
 		self.__is_checked_out = value
 		
-	def remove_book(self):
+	def return_book(self):
 		if self.__is_checked_out == True:
 			return True	
 	def is_available(self):
